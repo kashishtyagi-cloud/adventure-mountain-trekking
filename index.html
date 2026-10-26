@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adventure Mountain Trekking | Home</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+        font-family: Arial, sans-serif;
+        background-image: url('mountain.png');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+
+        }
+        nav {
+            background: #183d2b;
+            padding: 18px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 24px;
+            position: sticky;
+            top: 0;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover { color: #c8e6a0; }
+        .hero {
+            min-height: 75vh;
+            padding: 90px 20px;
+            text-align: center;
+            color: white;
+            background:
+                linear-gradient(#0007, #0007),
+                url("images (1).jpg") center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 { font-size: clamp(36px, 6vw, 60px); }
+        .hero p { font-size: 19px; max-width: 650px; line-height: 1.6; }
+        .btn {
+            display: inline-block;
+            background: #c8e6a0;
+            color: #183d2b;
+            padding: 13px 22px;
+            margin: 8px;
+            border-radius: 7px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        section { padding: 45px 20px; text-align: center; }
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            margin: 25px auto;
+        }
+        .card {
+            background: white;
+            padding: 24px;
+            border-radius: 12px;
+            width: 280px;
+            box-shadow: 0 4px 12px #0001;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #183d2b;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="trails.html">Explore Trails</a>
+    <a href="safety.html">Safety Guide</a>
+    <a href="altitude.html">Altitude Safety</a>
+</nav>
+
+<header class="hero">
+    <h1>Adventure Mountain Trekking</h1>
+    <p>Explore beautiful mountain trails, prepare for your next adventure,
+       and learn how to trek more safely.</p>
+    <a class="btn" href="trails.html">Explore Trails</a>
+    <a class="btn" href="safety.html">Learn Trekking Safety</a>
+    <a class="btn" href="altitude.html">Open Checker</a>
+</header>
+
+<section>
+    <h2>Your Next Adventure Starts Here</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>🏔️ Explore Mountains</h3>
+            <p>Discover trekking trails and learn about their difficulty levels.</p>
+            <a href="trails.html">View Trails →</a>
+        </div>
+        <div class="card">
+            <h3>🎒 Prepare Safely</h3>
+            <p>Learn about essential gear and important trekking precautions.</p>
+            <a href="safety.html">Safety Tips →</a>
+        </div>
+        <div class="card">
+            <h3>⛰️ Altitude Awareness</h3>
+            <p>Learn basic altitude precautions and check general safety guidance.</p>
+            <a href="altitude.html">Open Checker →</a>
+        </div>
+    </div>
+</section>
+<div class="page-navigation">
+  <a href="trails.html" class="next-btn">
+    Next Page →
+  </a>
+</div>
+
+<footer>© 2026 Adventure Mountain Trekking</footer>
+
+
+
+
+</body>
+</html>

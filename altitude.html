@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Altitude Safety | Adventure Mountain Trekking</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: Arial, sans-serif; background: #f4f7f2; color: #24382c; line-height: 1.6; }
+        nav { background: #183d2b; padding: 18px; display: flex; justify-content: center; flex-wrap: wrap; gap: 24px; }
+        nav a { color: white; text-decoration: none; font-weight: bold; }
+        nav a:hover { color: #c8e6a0; }
+        main { max-width: 600px; margin: 35px auto; padding: 20px; }
+        .box { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 12px #0001; }
+        label { display: block; font-weight: bold; margin: 16px 0 7px; }
+        input, select { width: 100%; padding: 12px; border: 1px solid #bbb; border-radius: 6px; font-size: 16px; }
+        button { width: 100%; margin-top: 20px; padding: 13px; border: 0; border-radius: 6px; background: #24543b; color: white; font-size: 16px; cursor: pointer; }
+        #result { margin-top: 20px; padding: 15px; border-radius: 8px; background: #eee; }
+        .normal { background: #e3f4e5 !important; }
+        .caution { background: #fff1cc !important; }
+        .danger { background: #ffe1e1 !important; }
+        .note { font-size: 13px; color: #555; }
+        footer { text-align: center; padding: 20px; background: #183d2b; color: white; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="trails.html">Explore Trails</a>
+    <a href="safety.html">Safety Guide</a>
+    <a href="altitude.html">Altitude Safety</a>
+</nav>
+
+<main>
+    <h1>⛰️ Altitude Safety Checker</h1>
+    <p>Enter your altitude and select how you feel to see general safety guidance.</p>
+
+    <div class="box">
+        <label for="altitude">Altitude in metres</label>
+        <input type="number" id="altitude" min="0" max="9000" placeholder="Example: 2500">
+
+        <label for="symptoms">How are you feeling?</label>
+        <select id="symptoms">
+            <option value="none">I feel normal</option>
+            <option value="mild">Headache, dizziness, or nausea</option>
+            <option value="severe">Confusion, difficulty walking, or breathlessness at rest</option>
+        </select>
+
+        <button type="button" onclick="checkSafety()">Check My Safety</button>
+        <div id="result" role="status" aria-live="polite">Your guidance will appear here.</div>
+    </div>
+
+    <p class="note">Educational information only; this tool cannot diagnose altitude illness or replace medical advice.</p>
+</main>
+
+<footer>© 2026 Adventure Mountain Trekking</footer>
+
+<script>
+function checkSafety() {
+    const field = document.getElementById("altitude");
+    const text = field.value.trim();
+    const altitude = Number(text);
+    const symptoms = document.getElementById("symptoms").value;
+    const result = document.getElementById("result");
+
+    result.className = "";
+
+    if (text === "" || !Number.isFinite(altitude) || altitude < 0 || altitude > 9000) {
+        result.classList.add("caution");
+        result.textContent = "Enter a valid altitude between 0 and 9000 metres.";
+        return;
+    }
+
+    if (symptoms === "severe") {
+        result.classList.add("danger");
+        result.textContent = "URGENT: Stop trekking and seek emergency medical help. These symptoms can signal a serious condition. Do not leave the person alone; arrange assisted descent if safe.";
+    } else if (symptoms === "mild") {
+        result.classList.add("caution");
+        result.textContent = "Do not ascend further. Rest and seek medical advice. If symptoms worsen or do not improve, arrange descent and urgent medical assessment.";
+    } else if (altitude >= 2500) {
+        result.classList.add("caution");
+        result.textContent = "Altitude illness is a concern at this elevation. Ascend gradually, allow time to acclimatize, and monitor for symptoms. Feeling normal now does not guarantee you will remain symptom-free.";
+    } else {
+        result.classList.add("normal");
+        result.textContent = "No symptoms reported. Continue to monitor yourself and ascend gradually. Altitude illness can occur below 2500 metres too.";
+    }
+}
+</script>
+
+</body>
+</html>
